@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Cinto do Marketing - Ferramentas Essenciais para Desenvolvedores',
   description: 'Formatador JSON/XML, Gerador de QR Code e Link WhatsApp. Ferramentas gratuitas e online para desenvolvedores e profissionais de marketing.',
   keywords: ['formatador json online', 'gerador qr code wifi', 'link whatsapp personalizado', 'xml beautifier', 'ferramentas marketing'],
+  other: {
+    'google-adsense-account': 'ca-pub-1924244368077847',
+  },
 }
 
 export default function RootLayout({
@@ -20,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-1924244368077847" />
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1924244368077847"
