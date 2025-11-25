@@ -425,6 +425,7 @@ export function QrCodeGenerator() {
           borderRadius: '0.5rem',
           border: '1px solid var(--border)'
         }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={qrCodeUrl}
             alt="QR Code"

@@ -29,14 +29,14 @@ export function GoogleAd({ position, className }: GoogleAdProps) {
       case 'top':
         return {
           containerStyle: { 
-            display: 'block', 
+            display: 'block' as const, 
             width: '100%', 
             minHeight: '100px', 
             margin: '1rem 0',
-            textAlign: 'center'
+            textAlign: 'center' as const
           },
           adStyle: { 
-            display: 'block',
+            display: 'block' as const,
             width: '100%',
             minHeight: '100px'
           },
@@ -46,15 +46,15 @@ export function GoogleAd({ position, className }: GoogleAdProps) {
       case 'sidebar':
         return {
           containerStyle: { 
-            display: 'block', 
+            display: 'block' as const, 
             width: '100%',
             maxWidth: '300px',
             minHeight: '250px',
             margin: '0 auto',
-            textAlign: 'center'
+            textAlign: 'center' as const
           },
           adStyle: { 
-            display: 'block',
+            display: 'block' as const,
             width: '100%',
             minHeight: '250px'
           },
@@ -64,14 +64,14 @@ export function GoogleAd({ position, className }: GoogleAdProps) {
       case 'bottom':
         return {
           containerStyle: { 
-            display: 'block', 
+            display: 'block' as const, 
             width: '100%', 
             minHeight: '100px', 
             margin: '1rem 0',
-            textAlign: 'center'
+            textAlign: 'center' as const
           },
           adStyle: { 
-            display: 'block',
+            display: 'block' as const,
             width: '100%',
             minHeight: '100px'
           },
@@ -80,8 +80,8 @@ export function GoogleAd({ position, className }: GoogleAdProps) {
         }
       default:
         return {
-          containerStyle: { display: 'block', textAlign: 'center' },
-          adStyle: { display: 'block' },
+          containerStyle: { display: 'block' as const, textAlign: 'center' as const },
+          adStyle: { display: 'block' as const },
           adFormat: 'auto',
           fullWidthResponsive: 'true'
         }
