@@ -1,0 +1,197 @@
+:root {
+  --primary: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --primary-glow: #a78bfa;
+  --secondary: #6366f1;
+  --secondary-glow: #818cf8;
+  --background: #0a0a0f;
+  --foreground: #f8fafc;
+  --card: #1a1a24;
+  --card-foreground: #f8fafc;
+  --card-border: rgba(139, 92, 246, 0.3);
+  --border: rgba(139, 92, 246, 0.2);
+  --input: #252535;
+  --muted: #1a1a24;
+  --muted-foreground: #94a3b8;
+  --success: #10b981;
+  --error: #ef4444;
+  --purple-glow: rgba(139, 92, 246, 0.5);
+  --blue-glow: rgba(99, 102, 241, 0.5);
+}
+
+[data-theme="light"] {
+  --primary: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --primary-glow: #a78bfa;
+  --secondary: #6366f1;
+  --secondary-glow: #818cf8;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --card-border: rgba(139, 92, 246, 0.2);
+  --border: rgba(139, 92, 246, 0.15);
+  --input: #f1f5f9;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --success: #10b981;
+  --error: #ef4444;
+  --purple-glow: rgba(139, 92, 246, 0.3);
+  --blue-glow: rgba(99, 102, 241, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  background-image: 
+    radial-gradient(at 0% 0%, var(--purple-glow) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, var(--blue-glow) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, var(--purple-glow) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, var(--blue-glow) 0px, transparent 50%);
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(135deg, transparent 0%, var(--purple-glow) 25%, transparent 50%),
+    linear-gradient(225deg, transparent 0%, var(--blue-glow) 25%, transparent 50%);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  border-radius: 4px;
+  box-shadow: 0 0 10px var(--purple-glow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--primary-glow), var(--secondary-glow));
+  box-shadow: 0 0 15px var(--purple-glow);
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+
+.p-2 { padding: 0.5rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .main-grid {
+    grid-template-columns: 1fr 300px !important;
+  }
+  
+  .sidebar-ad {
+    display: block !important;
+  }
+}
+
+/* Input styles */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  border: 1px solid var(--card-border) !important;
+  background: rgba(37, 37, 53, 0.5) !important;
+  color: var(--foreground) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.1) !important;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-glow) !important;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2), 0 0 15px rgba(139, 92, 246, 0.1) !important;
+  outline: none !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  body {
+    font-size: 14px;
+  }
+}
+
